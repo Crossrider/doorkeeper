@@ -3,6 +3,7 @@ module Doorkeeper
     before_filter :authenticate_resource_owner!
 
     def new
+      return create
       if authorization.valid?
         if authorization.access_token_exists?
           auth = authorization.authorize
